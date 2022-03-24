@@ -1,0 +1,13 @@
+{
+    "name": "user/slim-api-test",
+    "authors": [
+        {
+            "name": "Tasen",
+            "email": "tasen.kan@mail.ru"
+        }
+    ],
+    "require": {
+        "slim/slim": "4.*",
+        "guzzlehttp/psr7": "^2"
+    }
+}

@@ -1,0 +1,33 @@
+version: '3'
+services:
+  slim-nginx:
+    build:
+      context: ./docker/development
+      dockerfile: nginx.docker
+    volumes:
+      - ./:/app
+    depends_on:
+      - slim-php-fpm
+    ports:
+      - "8111:80"
+  slim-php-fpm:
+    build:
+      context: ./docker/development
+      dockerfile: php-fpm.docker
+    volumes:
+      - ./:/app
+    networks:
+      - default
+  slim-php-cli:
+    build:
+      context: ./docker/development
+      dockerfile: php-cli.docker
+    volumes:
+      - ./:/app
+      - composer:/root/.composer/cache
+    tty: true
+    networks:
+      - default
+
+volumes:
+  composer:
